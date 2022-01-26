@@ -43,6 +43,21 @@ public:
 
 		return _value;
 	}
+
+	MyInt& operator--() // prefix ++: no parameter, returns a reference
+	{
+		this->value = this->value - 1;
+
+		return *this;
+	}
+
+	MyInt operator--(int _value) // postfix ++: dummy parameter, returns a value
+	{
+		_value = this->value;
+		this->value = this->value - 1;
+
+		return _value;
+	}
 };
 
 int main()
@@ -56,10 +71,12 @@ int main()
 	a -= 10;
 	std::cout << "a > " << a.value << "\n";
 
+	// ++연산자
 	MyInt b = ++a;
 	std::cout << "a > " << a.value << "\n";
 	std::cout << "b > " << b.value << "\n";
 
+	// 실행 확인
 	int aa = 15;
 	int bb = ++aa;
 	std::cout << "aa > " << a.value << "\n";
@@ -69,7 +86,27 @@ int main()
 	std::cout << "a > " << a.value << "\n";
 	std::cout << "b > " << b.value << "\n";
 
+	// 실행 확인
 	bb = aa++;
+	std::cout << "aa > " << a.value << "\n";
+	std::cout << "bb > " << b.value << "\n";
+
+	// --연산자
+	b = --a;
+	std::cout << "a > " << a.value << "\n";
+	std::cout << "b > " << b.value << "\n";
+
+	// 실행 확인
+	bb = --aa;
+	std::cout << "aa > " << a.value << "\n";
+	std::cout << "bb > " << b.value << "\n";
+
+	b = a--;
+	std::cout << "a > " << a.value << "\n";
+	std::cout << "b > " << b.value << "\n";
+
+	// 실행 확인
+	bb = aa--;
 	std::cout << "aa > " << a.value << "\n";
 	std::cout << "bb > " << b.value << "\n";
 
