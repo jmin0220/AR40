@@ -1,15 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="TextScreen.cpp">
-      <Filter>Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="ConsoleScreen.cpp" />
+    <Filter Include="Contents">
+      <UniqueIdentifier>{7d84b5d6-a4b8-42a7-a36b-e7da1f4e06a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{65383d4c-672e-4aed-b0c9-15824016c6ad}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="Monster.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleGlobalInst.cpp">
+      <Filter>Contents</Filter>
+    </ClCompile>
+    <ClCompile Include="TextScreen.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
     <ClCompile Include="ConsoleMath.cpp">
       <Filter>Engine</Filter>
@@ -17,36 +27,26 @@
     <ClCompile Include="ConsoleObject.cpp">
       <Filter>Engine</Filter>
     </ClCompile>
-    <ClCompile Include="ConsoleGlobalInst.cpp">
-      <Filter>Contents</Filter>
-    </ClCompile>
+    <ClCompile Include="ConsoleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Contents">
-      <UniqueIdentifier>{980c1652-6a75-4f2b-8653-f1e1d3f1a156}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine">
-      <UniqueIdentifier>{16b8d88d-5645-40ad-8aeb-add1faea6ef4}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="TextScreen.h">
-      <Filter>Engine</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Contents</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
       <Filter>Contents</Filter>
     </ClInclude>
+    <ClInclude Include="ConsoleGlobalInst.h">
+      <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="TextScreen.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
     <ClInclude Include="ConsoleMath.h">
       <Filter>Engine</Filter>
     </ClInclude>
     <ClInclude Include="ConsoleObject.h">
       <Filter>Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsoleGlobalInst.h">
-      <Filter>Contents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
