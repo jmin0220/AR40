@@ -1,20 +1,29 @@
 #include "Monster.h"
+#include "ConsoleGlobalInst.h"
 
-Monster::Monster()
-	: ConsoleObject(nullptr, nullptr, { 0,0 })
+unsigned int Monster::AllMonsterCount_ = 0;
+
+unsigned int Monster::GetAllMonsterCount()
 {
-
+	return AllMonsterCount_;
 }
 
-Monster::Monster(TextScreen* _Screen, const char* _Text, const ConsoleVector& _Vector)
-	: ConsoleObject(_Screen, _Text, _Vector)
+Monster::Monster()
+	: ConsoleObject(&GlobalStatic::MainScreen, "  ", { 0,0 })
 {
+	++AllMonsterCount_;
+}
+
+Monster::Monster(const char* _Text, const ConsoleVector& _Vector)
+	: ConsoleObject(&GlobalStatic::MainScreen, _Text, _Vector)
+{
+	++AllMonsterCount_;
 }
 
 Monster::~Monster()
 {
+	--AllMonsterCount_;
 }
-
 
 void Monster::Update()
 {

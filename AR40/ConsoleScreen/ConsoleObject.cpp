@@ -8,10 +8,27 @@ ConsoleObject::ConsoleObject(
 	: Screen_(_Screen)
 	, Pos_(_Pos)
 {
-	//if (nullptr == _Screen)
-	//{
-	//	assert(false);
-	//}
+	SetRenderChar(_Text);
+}
+
+ConsoleObject::~ConsoleObject()
+{
+}
+
+// 캐릭터 렌더링
+void ConsoleObject::Render()
+{
+	if (nullptr == Screen_)
+	{
+		assert(false);
+	}
+
+	Screen_->SetPixel(Pos_, Text_);
+}
+
+// 그려야할 캐릭터의 렌더데이터 설정
+void ConsoleObject::SetRenderChar(const char* _Text)
+{
 
 	if (nullptr == _Text)
 	{
@@ -22,18 +39,4 @@ ConsoleObject::ConsoleObject(
 	{
 		Text_[i] = _Text[i];
 	}
-}
-
-ConsoleObject::~ConsoleObject()
-{
-}
-
-void ConsoleObject::Render()
-{
-	if (nullptr == Screen_)
-	{
-		assert(false);
-	}
-
-	Screen_->SetPixel(Pos_, Text_);
 }

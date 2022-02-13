@@ -12,7 +12,7 @@ Player::~Player()
 {
 }
 
-void Player::Update()
+int Player::Update()
 {
 	// 키보드입력을 대기
 	int Value = _getch();
@@ -38,9 +38,11 @@ void Player::Update()
 	// 게임이 종료된다.
 	case 'q':
 	case 'Q':
-		assert(false);
+		return -1;
 		break;
 	default:
 		break;
 	}
+
+	return 1;
 }

@@ -38,6 +38,8 @@ public:
 
 	void Render();
 
+	void SetRenderChar(const char* _Text);
+
 protected:
 
 private:

@@ -17,7 +17,7 @@ public:
 	Player& operator=(const Player& _Other) = delete;
 	Player& operator=(Player&& _Other) noexcept = delete;
 
-	void Update();
+	int Update();
 
 protected:
 

@@ -15,7 +15,7 @@ TextScreen::~TextScreen()
 	// 이중포인터이므로 배열을 먼저 순서대로 초기화 후, PixelData_를 마지막으로 초기화.
 	for (int i = 0; i < Size_.y_; i++)
 	{
-		if (nullptr != PixelData_)
+		if (nullptr != PixelData_[i])
 		{
 			delete[] PixelData_[i];
 			PixelData_[i] = nullptr;
