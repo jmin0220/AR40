@@ -6,6 +6,8 @@
 class ConsoleObject
 {
 public:
+	ConsoleObject();
+
 	// constrcuter destructer
 	ConsoleObject(
 		TextScreen* _Screen,

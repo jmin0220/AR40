@@ -8,6 +8,7 @@ class Player : public ConsoleObject
 {
 public:
 	// constrcuter destructer
+	Player();
 	Player(TextScreen* _Screen, const char* _Text);
 	~Player();
 

@@ -1,5 +1,10 @@
 #include "ConsoleObject.h"
 
+ConsoleObject::ConsoleObject()
+{
+
+}
+
 ConsoleObject::ConsoleObject(
 	TextScreen* _Screen,
 	const char* _Text,
