@@ -28,6 +28,10 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="ConsoleRandom.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Monster.h">
       <SubType>
       </SubType>
@@ -48,6 +52,10 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="ConsoleObject.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="ConsoleRandom.cpp">
       <SubType>
       </SubType>
     </ClCompile>

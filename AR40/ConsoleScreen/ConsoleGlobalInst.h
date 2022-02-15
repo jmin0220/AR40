@@ -23,6 +23,8 @@ public:
 	// 1객체의 몬스터 정보를 취득
 	static Monster* GetMonster(unsigned int _Index);
 
+	static Monster* GetMonster(const ConsoleVector& _Pos);
+
 private:
 	static Monster* AllMonsters;
 };

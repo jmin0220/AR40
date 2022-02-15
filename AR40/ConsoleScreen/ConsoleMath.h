@@ -51,8 +51,8 @@ public:
 	{
 		ConsoleVector Result;
 
-		Result.x_ = _Other.x_;
-		Result.y_ = _Other.y_;
+		Result.x_ = x_ + _Other.x_;
+		Result.y_ = y_ + _Other.y_;
 
 		return Result;
 	}
@@ -63,5 +63,10 @@ public:
 		y_ += _Other.y_;
 
 		return *this;
+	}
+
+	bool operator==(const ConsoleVector& _Other)
+	{
+		return (x_ == _Other.x_) && (y_ == _Other.y_);
 	}
 };

@@ -12,6 +12,47 @@ Player::~Player()
 {
 }
 
+void Player::PlayerMove(ConsoleVector _Vector)
+{
+	int PlayerMoveX = (GetPos() + _Vector).x_;
+	int PlayerMoveY = (GetPos() + _Vector).y_;
+
+	int ScreenX = GlobalStatic::MainScreen.GetSize().x_;
+	int ScreenY = GlobalStatic::MainScreen.GetSize().y_;
+
+	if (0 > PlayerMoveX)
+	{
+		return;
+	}
+
+	if (0 > PlayerMoveY)
+	{
+		return;
+	}
+
+	if (PlayerMoveX >= ScreenX)
+	{
+		return;
+	}
+
+	if (PlayerMoveY >= ScreenY)
+	{
+		return;
+	}
+
+	// 내가 가려는 곳에 몬스터가 있어!
+	Monster* FindMonster =
+		GlobalStatic::GetMonster({ PlayerMoveX , PlayerMoveY });
+
+	if (nullptr != FindMonster)
+	{
+		FindMonster->Death();
+		return;
+	}
+
+	SetMove(_Vector);
+}
+
 int Player::Update()
 {
 	// 키보드입력을 대기
@@ -21,19 +62,19 @@ int Player::Update()
 	{
 	case 'a':
 	case 'A':
-		SetMove({ -1, 0 });
+		PlayerMove({ -1, 0 });
 		break;
 	case 'd':
 	case 'D':
-		SetMove({ 1, 0 });
+		PlayerMove({ 1, 0 });
 		break;
 	case 'w':
 	case 'W':
-		SetMove({ 0, -1 });
+		PlayerMove({ 0, -1 });
 		break;
 	case 's':
 	case 'S':
-		SetMove({ 0, 1 });
+		PlayerMove({ 0, 1 });
 		break;
 	// 게임이 종료된다.
 	case 'q':

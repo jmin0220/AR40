@@ -20,6 +20,9 @@
     <ClCompile Include="ConsoleGlobalInst.cpp">
       <Filter>Contents</Filter>
     </ClCompile>
+    <ClCompile Include="ConsoleRandom.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Contents">
@@ -47,6 +50,9 @@
     </ClInclude>
     <ClInclude Include="ConsoleGlobalInst.h">
       <Filter>Contents</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleRandom.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

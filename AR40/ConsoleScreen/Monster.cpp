@@ -10,6 +10,7 @@ unsigned int Monster::GetAllMonsterCount()
 
 Monster::Monster()
 	: ConsoleObject(&GlobalStatic::MainScreen, "  ", { 0,0 })
+	, IsDeath_(false)
 {
 	++AllMonsterCount_;
 }
@@ -25,6 +26,25 @@ Monster::~Monster()
 	--AllMonsterCount_;
 }
 
+
 void Monster::Update()
 {
+}
+
+
+void Monster::Death()
+{
+	IsDeath_ = true;
+}
+
+
+void Monster::Render()
+{
+	if (true == GetIsDeath())
+	{
+		return;
+	}
+
+	// 부모의 함수를 호출
+	ConsoleObject::Render();
 }

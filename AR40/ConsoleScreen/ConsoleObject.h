@@ -36,7 +36,7 @@ public:
 	}
 
 
-	void Render();
+	virtual void Render();
 
 	void SetRenderChar(const char* _Text);
 

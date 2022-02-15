@@ -22,6 +22,6 @@ public:
 protected:
 
 private:
-
+	void PlayerMove(ConsoleVector _Vector);
 };
 
