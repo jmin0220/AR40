@@ -52,7 +52,6 @@ int main()
 
 			if (NewBody != nullptr)
 			{
-				delete NewBody;
 				NewBody = nullptr;
 			}
 		}

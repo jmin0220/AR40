@@ -55,5 +55,10 @@ void Head::OverLap(ConsoleObject* _Link)
 
 void Head::Destroy()
 {
+	for (std::list<Body*>::iterator body = AllBody.begin(); body != AllBody.end(); body++)
+	{
+		delete(*body);
+	}
+
 	AllBody.clear();
 }
