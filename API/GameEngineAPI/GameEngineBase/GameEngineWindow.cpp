@@ -1,8 +1,32 @@
 #include "GameEngineWindow.h"
 #include "GameEngineDebug.h"
 
+// HWND hWnd       대상 윈도우의 핸들
+// UINT message    그 메세지의 종류
+// WPARAM wParam   
+// LPARAM lParam   
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    switch (message)
+    {
+    case WM_DESTROY:
+        // 윈도우 종료, 루프 종료
+        GameEngineWindow::GetInst().Off();
+        return DefWindowProc(hWnd, message, wParam, lParam);
+    // 윈도우 화면에 무엇인가 그려질 경우
+    case WM_PAINT:
+    {
+        PAINTSTRUCT ps;
+        HDC hdc = BeginPaint(hWnd, &ps);
+
+        EndPaint(hWnd, &ps);
+        return DefWindowProc(hWnd, message, wParam, lParam);
+    }
+    default:
+        break;
+    }
+
     return DefWindowProc(hWnd, message, wParam, lParam);
 }
 
@@ -11,17 +35,35 @@ GameEngineWindow* GameEngineWindow::Inst_ = new GameEngineWindow();
 GameEngineWindow::GameEngineWindow()
     : hInst_(nullptr)
     , hWnd_(nullptr)
+    , WindowOn_(true)
+    , HDC_(nullptr)
 {
 }
 
 GameEngineWindow::~GameEngineWindow() 
 {
+    if (nullptr != HDC_)
+    {
+        ReleaseDC(hWnd_, HDC_);
+        HDC_ = nullptr;
+    }
+
+    if (nullptr != hWnd_)
+    {
+        DestroyWindow(hWnd_);
+        hWnd_ = nullptr;
+    }
+}
+
+void GameEngineWindow::Off()
+{
+    WindowOn_ = false;
 }
 
 void GameEngineWindow::RegClass(HINSTANCE _hInst)
 {
     // 윈도우 클래스 등록
-    WNDCLASSEXW wcex;
+    WNDCLASSEXA wcex;
     wcex.cbSize = sizeof(WNDCLASSEX);
     wcex.style = CS_HREDRAW | CS_VREDRAW;
     wcex.lpfnWndProc = WndProc;
@@ -32,10 +74,10 @@ void GameEngineWindow::RegClass(HINSTANCE _hInst)
     wcex.hCursor = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 2);
     wcex.lpszMenuName = nullptr;
-    wcex.lpszClassName = L"GameEngineWindowClass";
+    wcex.lpszClassName = "GameEngineWindowClass";
     wcex.hIconSm = nullptr;
 
-    RegisterClassExW(&wcex);
+    RegisterClassExA(&wcex);
 }
 
 void GameEngineWindow::CreateGameWindow(HINSTANCE _hInst, const std::string& _Title)
@@ -51,8 +93,13 @@ void GameEngineWindow::CreateGameWindow(HINSTANCE _hInst, const std::string& _Ti
     hInst_ = _hInst;
     RegClass(_hInst);
 
+    // 윈도우 핸들
     hWnd_ = CreateWindowExA(0L, "GameEngineWindowClass", Title_.c_str(), WS_OVERLAPPEDWINDOW,
         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, _hInst, nullptr);
+
+    // 화면에 무언가를 그리는 핸들
+    // 그려야하는 윈도우를 전달
+    HDC_ = GetDC(hWnd_);
 
     if (!hWnd_)
     {
@@ -72,4 +119,34 @@ void GameEngineWindow::ShowGameWindow()
 
     ShowWindow(hWnd_, SW_SHOW);
     UpdateWindow(hWnd_);
+}
+
+void GameEngineWindow::MessageLoop(void(*_LoopFunction)())
+{
+    MSG msg;
+
+    // 기본 메시지 루프입니다:
+    while (WindowOn_)
+    {
+        // GetMessage는 메세지가 없으면 다음 실행을 기다림. 게임에는 부적합.
+        // PM_NOREMOVE 메세지 실행후 스택에서 메세지를 제거하지 않음.
+        // PM_REMONVE  메세지 실행후 스택에서 메세지를 제거함.
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
+        {
+            // 키보드의 입력이 문자일경우 WM_KEYDOWN로부터 WM_CHAR를 반환하는 함수.
+            TranslateMessage(&msg);
+
+            // WM_CHAR를 WndProc에 전달
+            DispatchMessage(&msg);
+        }
+
+        // 게임실행부
+
+        if (nullptr == _LoopFunction)
+        {
+            continue;
+        }
+
+        _LoopFunction();
+    }
 }

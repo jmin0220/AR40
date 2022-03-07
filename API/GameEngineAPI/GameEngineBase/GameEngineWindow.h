@@ -29,13 +29,32 @@ public:
 	void CreateGameWindow(HINSTANCE _hInst, const std::string& _Title);
 	// 윈도우 보여주기
 	void ShowGameWindow();
+	// 메세지 입력대기
+	void MessageLoop(void(*_LoopFunction)());
+
+	// 윈도우 종료
+	void Off();
+
+	static inline HDC GETDC()
+	{
+		return Inst_->HDC_;
+	}
 
 protected:
 
 private:
-	HINSTANCE hInst_;
-	HWND hWnd_;
+	// 프로그램 타이틀
 	std::string Title_;
+	// 윈도우 On/Off
+	bool WindowOn_;
+
+	// 윈도우 인스턴스
+	HINSTANCE hInst_;
+	// 윈도우 핸들
+	HWND hWnd_;
+
+	// 그리기
+	HDC HDC_;
 
 	// constrcuter destructer
 	GameEngineWindow();
