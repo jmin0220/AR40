@@ -30,7 +30,7 @@ public:
 	// 윈도우 보여주기
 	void ShowGameWindow();
 	// 메세지 입력대기
-	void MessageLoop(void(*_LoopFunction)());
+	void MessageLoop(void(*_InitFunction)(), void(*_LoopFunction)());
 
 	// 윈도우 종료
 	void Off();

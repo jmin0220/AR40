@@ -1,7 +1,18 @@
 #include <Windows.h>
 #include <GameEngineBase/GameEngineWindow.h>
 #include <GameEngineBase/GameEngineDebug.h>
+#include <GameEngineContents/StardewContents.h>
 
+StardewContents MyGame;
+
+// 텍스쳐 로딩 준비 오브젝트 생성등등
+void GameInit()
+{
+
+}
+
+
+// 게임 실행
 void GameLoop()
 {
     Rectangle(GameEngineWindow::GETDC(), 100, 100, 200, 200);
@@ -21,7 +32,9 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance,
     // 윈도우 보여주기
     GameEngineWindow::GetInst().ShowGameWindow();
 
-    GameEngineWindow::GetInst().MessageLoop(GameLoop);
+    GameEngineWindow::GetInst().MessageLoop(nullptr, GameLoop);
 
     GameEngineWindow::Destroy();
+
+    MyGame.GameEnd();
 }
