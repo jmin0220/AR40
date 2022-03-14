@@ -2,7 +2,7 @@
 #include <GameEngine/GameEngineLevel.h>
 
 // Ό³Έν :
-class TitleLevel : GameEngineLevel
+class TitleLevel : public GameEngineLevel
 {
 public:
 	// constrcuter destructer
@@ -17,6 +17,8 @@ public:
 
 protected:
 	void Loading() override;
+	void Update() override;
+
 private:
 
 };

@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-// 설명 :
+// 설명 : map에 사용될 key값을 생성.
 class GameEngineNameObject
 {
 public:

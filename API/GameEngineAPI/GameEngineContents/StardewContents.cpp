@@ -13,9 +13,13 @@ StardewContents::~StardewContents()
 
 void StardewContents::GameInit()
 {
-	//CreateLevel<TitleLevel>("Title");
-	//CreateLevel<PlayLevel>("Play");
-	//CreateLevel<EndingLevel>("Ending");
+	// 레벨 생성
+	CreateLevel<TitleLevel>("Title");
+	CreateLevel<PlayLevel>("Play");
+	CreateLevel<EndingLevel>("Ending");
+
+	// 레벨 변경
+	ChangeLevel("Title");
 }
 
 void StardewContents::GameLoop()

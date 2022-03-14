@@ -165,7 +165,15 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="Bream.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="Chiecken.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Copper.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -178,6 +186,14 @@
       </SubType>
     </ClInclude>
     <ClInclude Include="EndingLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Fishes.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="Mines.h">
       <SubType>
       </SubType>
     </ClInclude>
@@ -219,7 +235,15 @@
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="Bream.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Chiecken.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Copper.cpp">
       <SubType>
       </SubType>
     </ClCompile>
@@ -232,6 +256,14 @@
       </SubType>
     </ClCompile>
     <ClCompile Include="EndingLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Fishes.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="Mines.cpp">
       <SubType>
       </SubType>
     </ClCompile>

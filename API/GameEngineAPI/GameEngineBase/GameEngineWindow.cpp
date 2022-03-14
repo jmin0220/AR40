@@ -60,6 +60,7 @@ void GameEngineWindow::Off()
     WindowOn_ = false;
 }
 
+// 윈도우 클래스 생성
 void GameEngineWindow::RegClass(HINSTANCE _hInst)
 {
     // 윈도우 클래스 등록
@@ -138,7 +139,7 @@ void GameEngineWindow::MessageLoop(void(*_InitFunction)(), void(*_LoopFunction)(
         // PM_REMONVE  메세지 실행후 스택에서 메세지를 제거함.
         if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            // 키보드의 입력이 문자일경우 WM_KEYDOWN로부터 WM_CHAR를 반환하는 함수.
+            // 키보드의 입력이 문자일경우 WM_KEYDOWN로부터 WM_CHAR(입력된 문자)를 반환하는 함수.
             TranslateMessage(&msg);
 
             // WM_CHAR를 WndProc에 전달
