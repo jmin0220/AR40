@@ -50,6 +50,9 @@
     <ClCompile Include="Copper.cpp">
       <Filter>02Play\Mine</Filter>
     </ClCompile>
+    <ClCompile Include="TitleBackGround.cpp">
+      <Filter>01Title</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="StardewContents.h" />
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="Copper.h">
       <Filter>02Play\Mine</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleBackGround.h">
+      <Filter>01Title</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

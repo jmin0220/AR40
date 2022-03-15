@@ -15,7 +15,7 @@ GameEngine::~GameEngine()
 {
 }
 
-void GameEngine::GameInit()
+void GameEngine::GameInit() 
 {
 
 }
@@ -45,21 +45,36 @@ void GameEngine::EngineInit()
 
 void GameEngine::EngineLoop()
 {
+	// 1프레임
 	UserContents_->GameLoop();
 
 	// 레벨 전환
 	if (nullptr != NextLevel_)
 	{
+		if (nullptr != CurrentLevel_)
+		{
+			CurrentLevel_->SceneChangeEnd();
+		}
+
 		CurrentLevel_ = NextLevel_;
+
+		if (nullptr != CurrentLevel_)
+		{
+			CurrentLevel_->SceneChangeStart();
+		}
+
 		NextLevel_ = nullptr;
 	}
 
+		// 에러 판정
 	if (nullptr == CurrentLevel_)
 	{
 		MsgBoxAssert("Current Level is NULL => GameEngine Loop Error");
 	}
 
 	CurrentLevel_->Update();
+	CurrentLevel_->ActorUpdate();
+	CurrentLevel_->ActorRender();
 }
 
 // 프로그램 종료
