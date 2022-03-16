@@ -1,6 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <string>
+#include "GameEngineMath.h"
 
 // 설명 :
 class GameEngineWindow
@@ -32,12 +33,19 @@ public:
 	// 메세지 입력대기
 	void MessageLoop(void(*_InitFunction)(), void(*_LoopFunction)());
 
+	void SetWindowScaleAndPosition(float4 _Pos, float4 _Scale);
+
 	// 윈도우 종료
 	void Off();
 
-	static inline HDC GETDC()
+	static inline HDC GetHDC()
 	{
 		return Inst_->HDC_;
+	}
+
+	static inline float4 GetScale()
+	{
+		return Inst_->Scale_;
 	}
 
 protected:
@@ -53,8 +61,10 @@ private:
 	// 윈도우 핸들
 	HWND hWnd_;
 
-	// 그리기
+	// 그림을 그릴 권한
 	HDC HDC_;
+	// 그림의 크기
+	float4 Scale_;
 
 	// constrcuter destructer
 	GameEngineWindow();

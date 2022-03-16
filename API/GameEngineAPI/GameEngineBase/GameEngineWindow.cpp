@@ -156,3 +156,15 @@ void GameEngineWindow::MessageLoop(void(*_InitFunction)(), void(*_LoopFunction)(
         _LoopFunction();
     }
 }
+
+void GameEngineWindow::SetWindowScaleAndPosition(float4 _Pos, float4 _Scale)
+{
+    // 윈도우의 메뉴바, 창의 프레임사이즈 등을 고려한 윈도우의 크기를 생성
+    RECT Rc = { 0, 0, _Scale.ix(), _Scale.iy() };
+    AdjustWindowRect(&Rc, WS_OVERLAPPEDWINDOW, FALSE);
+
+    Scale_ = _Scale;
+
+    SetWindowPos(hWnd_, nullptr, _Pos.ix(), _Pos.iy(), Rc.right - Rc.left, Rc.bottom - Rc.top, SWP_NOZORDER);
+
+}

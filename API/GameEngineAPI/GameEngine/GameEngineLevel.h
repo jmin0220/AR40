@@ -36,8 +36,10 @@ protected:
 	ActorType* CreateActor(const std::string& _Name, int _Order)
 	{
 		ActorType* NewActor = new ActorType();
+		GameEngineActor* StartActor = NewActor;
 		NewActor->SetName(_Name);
 		NewActor->SetLevel(this);
+		StartActor->Start();
 
 		// 랜더링 우선순위에 맞춰 액터를 리스트에 추가
 		std::list<GameEngineActor*>& Group = AllActor_[_Order];

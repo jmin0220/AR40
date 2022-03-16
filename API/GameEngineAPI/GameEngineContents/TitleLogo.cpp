@@ -12,11 +12,11 @@ TitleLogo::~TitleLogo()
 
 void TitleLogo::Start()
 {
-
+	SetPosition(GameEngineWindow::GetScale().Half());
+	SetScale({ 500, 500 });
 }
 
 void TitleLogo::Render()
 {
-	// 사각형을 생성.
-	Rectangle(GameEngineWindow::GETDC(), 100, 100, 300, 300);
+	DebugRectRender();
 }

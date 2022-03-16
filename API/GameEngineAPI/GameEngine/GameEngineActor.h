@@ -19,10 +19,33 @@ public:
 	GameEngineActor& operator=(const GameEngineActor& _Other) = delete;
 	GameEngineActor& operator=(GameEngineActor&& _Other) noexcept = delete;
 
+	inline float4 GetPosition()
+	{
+		return Position_;
+	}
+
+	inline float4 GetScale()
+	{
+		return Scale_;
+	}
+
+	inline void SetPosition(float4 _Value)
+	{
+		Position_ = _Value;
+	}
+
+	inline void SetScale(float4 _Value)
+	{
+		Scale_ = _Value;
+	}
+
+
 protected:
 	virtual void Start() = 0;
 	virtual void Update() {};
 	virtual void Render() {};
+
+	void DebugRectRender();
 
 private:
 	// 현재 액터가 생성되어있는 레벨
