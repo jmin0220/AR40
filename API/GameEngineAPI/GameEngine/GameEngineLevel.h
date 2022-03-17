@@ -27,9 +27,9 @@ protected:
 
 	// 레벨이 변경될때 호출될 함수.
 	// 레벨이 시작될 때
-	virtual void SceneChangeStart() {};
+	virtual void LevelChangeStart() {};
 	// 레벨이 종료될 때
-	virtual void SceneChangeEnd() {};
+	virtual void LevelChangeEnd() {};
 
 	// 액터 생성
 	template<typename ActorType>

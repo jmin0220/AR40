@@ -4,6 +4,7 @@
 #include <GameEngineBase/GameEngineDebug.h>
 
 // 설명 : 게임 자체의 시작점과 끝점, 실행중을 담당. 인터페이스만을 제공
+class GameEngineImage;
 class GameEngineLevel;
 class GameEngine
 {
@@ -17,6 +18,13 @@ public:
 	GameEngine(GameEngine&& _Other) noexcept = delete;
 	GameEngine& operator=(const GameEngine& _Other) = delete;
 	GameEngine& operator=(GameEngine&& _Other) noexcept = delete;
+
+	static inline GameEngineImage* BackBuffer()
+	{
+		return BackBufferImage_;
+	}
+
+	static HDC BackBufferDC();
 
 	// 퓨어 virtual
 	// 게임 초기화
@@ -72,6 +80,7 @@ private:
 	static GameEngineLevel* CurrentLevel_;
 	static GameEngineLevel* NextLevel_;
 	static GameEngine*      UserContents_;
+	static GameEngineImage* BackBufferImage_;
 
 	static void WindowCreate();
 	static void EngineInit();

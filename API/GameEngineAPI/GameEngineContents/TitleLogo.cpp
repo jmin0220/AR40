@@ -12,8 +12,9 @@ TitleLogo::~TitleLogo()
 
 void TitleLogo::Start()
 {
-	SetPosition(GameEngineWindow::GetScale().Half());
-	SetScale({ 500, 500 });
+	// 타이틀로그의 위치와 크기
+	SetPosition({640, 257});
+	SetScale({ 400, 186});
 }
 
 void TitleLogo::Render()
