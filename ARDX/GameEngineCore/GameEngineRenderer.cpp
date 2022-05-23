@@ -7,24 +7,28 @@
 #include "GameEngineVertexBuffer.h"
 #include "GameEngineIndexBuffer.h"
 
-GameEngineRenderer::GameEngineRenderer()
+GameEngineRenderer::GameEngineRenderer() 
 {
 }
 
-GameEngineRenderer::~GameEngineRenderer()
+GameEngineRenderer::~GameEngineRenderer() 
 {
 }
 
 
-void GameEngineRenderer::Start()
+void GameEngineRenderer::Start() 
 {
 	GetActor()->GetLevel()->PushRenderer(this);
 }
 
+float Angle = 0.0f;
 void GameEngineRenderer::Render(float _DeltaTime)
 {
-	GameEngineVertexBuffer* Vertex = GameEngineVertexBuffer::Find("Rect");
-	GameEngineIndexBuffer* Index = GameEngineIndexBuffer::Find("Rect");
+	// 랜더링
+	GameEngineVertexBuffer* Vertex = GameEngineVertexBuffer::Find("Tri");
+	GameEngineIndexBuffer* Index = GameEngineIndexBuffer::Find("Tri");
+
+	Angle += _DeltaTime * 360.0f;
 
 	std::vector<POINT> DrawVertex;
 	DrawVertex.resize(Index->Indexs.size());
@@ -46,22 +50,18 @@ void GameEngineRenderer::Render(float _DeltaTime)
 		CopyBuffer[i] *= GetActor()->GetTransform().GetScale();
 
 		// 자전
-		// CopyBuffer[TriIndex] *= GetActor()->GetTransform().GetScale();
+		CopyBuffer[i] = float4::VectorRotationToDegreeZ(CopyBuffer[i], Angle);
 
 		// 이동
 		CopyBuffer[i] += GetActor()->GetTransform().GetPosition();
 
-
+		
 
 		DrawVertex[i] = CopyBuffer[i].GetConvertWindowPOINT();
 	}
-
 
 	for (size_t i = 0; i < DrawVertex.size(); i += 3)
 	{
 		Polygon(GameEngineWindow::GetHDC(), &DrawVertex[i], 3);
 	}
-
-
-	// Rectangle(GameEngineWindow::GetHDC(), LeftTop.ix(), LeftTop.iy(), RightBot.ix(), RightBot.iy());
 }

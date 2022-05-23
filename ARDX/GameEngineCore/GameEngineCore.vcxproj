@@ -19,63 +19,102 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameEngineActor.h" />
-    <ClInclude Include="GameEngineComponent.h" />
-    <ClInclude Include="GameEngineCore.h" />
+    <ClInclude Include="GameEngineActor.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GameEngineComponent.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
+    <ClInclude Include="GameEngineCore.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GameEngineIndexBuffer.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngineLevel.h" />
+    <ClInclude Include="GameEngineLevel.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GameEngineMesh.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngineRenderer.h" />
+    <ClInclude Include="GameEngineRenderer.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GameEngineRes.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GameEngineStateManager.h" />
+    <ClInclude Include="GameEngineStateManager.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="GameEngineVertexBuffer.h">
       <SubType>
       </SubType>
     </ClInclude>
-    <ClInclude Include="GEngine.h" />
+    <ClInclude Include="GEngine.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="GameEngineActor.cpp" />
-    <ClCompile Include="GameEngineComponent.cpp" />
-    <ClCompile Include="GameEngineCore.cpp" />
-    <ClCompile Include="GameEngineCore_Resources.cpp">
+    <ClCompile Include="GameEngineActor.cpp">
       <SubType>
       </SubType>
     </ClCompile>
+    <ClCompile Include="GameEngineComponent.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="GameEngineCore.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
+    <ClCompile Include="GameEngineCore_Resources.cpp" />
     <ClCompile Include="GameEngineIndexBuffer.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEngineLevel.cpp" />
+    <ClCompile Include="GameEngineLevel.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="GameEngineMesh.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEngineRenderer.cpp" />
+    <ClCompile Include="GameEngineRenderer.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="GameEngineRes.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GameEngineStateManager.cpp" />
+    <ClCompile Include="GameEngineStateManager.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="GameEngineVertexBuffer.cpp">
       <SubType>
       </SubType>
     </ClCompile>
-    <ClCompile Include="GEngine.cpp" />
+    <ClCompile Include="GEngine.cpp">
+      <SubType>
+      </SubType>
+    </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{4d1b1c5d-9371-4ca8-8069-838b7bbb0c2e}</ProjectGuid>
+    <ProjectGuid>{056025fa-ee6b-4d5a-a2f0-ca4fc17c0c6e}</ProjectGuid>
     <RootNamespace>GameEngineCore</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -84,27 +123,27 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -126,13 +165,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\</OutDir>
-    <IntDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\</OutDir>
-    <IntDir>$(SolutionDir)Bin\$(Configuration)\$(PlatformTarget)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -152,8 +187,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,8 +201,6 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -184,9 +215,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -201,9 +232,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <AdditionalIncludeDirectories>..\;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

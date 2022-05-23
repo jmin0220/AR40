@@ -19,7 +19,7 @@ void GameEngineCore::EngineResourcesInitialize()
 		// 0       1
 
 		//    원점
-
+		
 		// 3       2
 
 		std::vector<float4> Vertex;
@@ -32,12 +32,19 @@ void GameEngineCore::EngineResourcesInitialize()
 	}
 
 	{
-		// 0       1
+		std::vector<float4> Vertex;
+		Vertex.push_back(float4(0.0f, -1.0f));
+		Vertex.push_back(float4(-1.0f, 1.0f));
+		Vertex.push_back(float4(1.0f, 1.0f));
 
-		//    원점
+		Vertex.push_back(float4(0.0f, 1.3f));
+		Vertex.push_back(float4(-1.0f, 0.3f));
+		Vertex.push_back(float4(1.0f, 0.3f));
 
-		// 3       2
+		GameEngineVertexBuffer::Create("Tri", Vertex);
+	}
 
+	{
 		std::vector<int> Index;
 
 		// 첫번째 삼각형
@@ -56,7 +63,25 @@ void GameEngineCore::EngineResourcesInitialize()
 
 		GameEngineIndexBuffer::Create("Rect", Index);
 	}
+	{
+		std::vector<int> Index;
 
+		// 첫번째 삼각형
+		// 디폴트 생성자로 인자를 뒤에 추가해주는 요소 추가 함수.
+		Index.resize(6);
+
+		// 첫번째
+		Index[0] = 0;
+		Index[1] = 1;
+		Index[2] = 2;
+
+		// 두번째
+		Index[3] = 3;
+		Index[4] = 4;
+		Index[5] = 5;
+
+		GameEngineIndexBuffer::Create("Tri", Index);
+	}
 
 }
 
