@@ -33,13 +33,13 @@ void GameEngineCore::EngineResourcesInitialize()
 
 	{
 		std::vector<float4> Vertex;
-		Vertex.push_back(float4(0.0f, -1.0f));
-		Vertex.push_back(float4(-1.0f, 1.0f));
-		Vertex.push_back(float4(1.0f, 1.0f));
+		Vertex.push_back(float4(0.0f, 1.0f));
+		Vertex.push_back(float4(-1.0f, -0.5f));
+		Vertex.push_back(float4(1.0f, -0.5f));
 
-		Vertex.push_back(float4(0.0f, 1.3f));
-		Vertex.push_back(float4(-1.0f, 0.3f));
-		Vertex.push_back(float4(1.0f, 0.3f));
+		Vertex.push_back(float4(0.0f, -1.3f));
+		Vertex.push_back(float4(-1.0f, 0.5f));
+		Vertex.push_back(float4(1.0f, 0.5f));
 
 		GameEngineVertexBuffer::Create("Tri", Vertex);
 	}
